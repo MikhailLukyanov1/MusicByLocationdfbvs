@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let locationHandler = LocationHandler()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+            Text("Hello World!")
+                .padding()
+            Spacer()
+            Button("Find Music", action: {})
+        }.onAppear(perform: {
+            locationHandler.requestAuthorisation()
+        })
+
     }
 }
 
